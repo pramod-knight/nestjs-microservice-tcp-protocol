@@ -1,0 +1,8 @@
+# copy all variable in .env file (root folder) when you run project by docker
+GATEWAY_PORT = 4001
+JWT_SECRET= User@2023@123
+
+#User Service env
+USER_SERVICE_PORT = 7001
+USER_SERVICE_HOST = user-service
+USER_SERVICE_MONGO_URL = mongodb://mongo:27017/micro-poc
