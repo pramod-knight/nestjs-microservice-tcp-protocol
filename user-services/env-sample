@@ -1,0 +1,5 @@
+#create .env file and copy all variables into .env file
+
+USER_SERVICE_PORT = 
+USER_SERVICE_HOST = 
+USER_SERVICE_MONGO_URL = 

@@ -1,0 +1,6 @@
+#create a .env file and copy all variables in .env file and provide values
+
+USER_SERVICE_PORT = 7001
+USER_SERVICE_HOST = localhost //when using local replace it with service_host_name when running via docker-compose
+GATEWAY_PORT = 4001
+JWT_SECRET= User@2023@123
