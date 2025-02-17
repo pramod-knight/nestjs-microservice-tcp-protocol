@@ -2,6 +2,11 @@
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript is used to build this repository.
 
+[JWT and passport] used for authentication
+[Mongodb] used for database
+[TCP] protocol for microservice
+[Docker] compose to run in a single container
+
 ## Clone the repository 
 
 ## Project setup
