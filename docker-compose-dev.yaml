@@ -1,0 +1,52 @@
+#Initialize services
+services:
+  #HTTP-API-GATEWAY
+  http-gateway:
+    container_name: api_gateway
+    build: 
+      context: './gateway'
+      dockerfile: Dockerfile
+    command: pnpm start
+    env_file:
+      - ./.env
+    volumes:
+      - ./gateway/src:/app/src
+    ports:
+      - 4001:4001
+    networks:
+      - app_network
+  #USER-MICRO-SERVICE
+  user-service:
+    container_name: user_micro1
+    build: 
+      context: './user-services'
+      dockerfile: Dockerfile
+    command: pnpm start
+    env_file:
+      - ./.env
+    ports:
+      - 7001:7001
+    volumes:
+      - ./user-services/src:/app/src
+    networks:
+      - app_network
+    depends_on:
+      - mongo
+
+  # MONGO DATABASE
+  mongo:
+    container_name: mongo
+    image: mongo:latest
+    ports:
+      - "27017:27017"  # Expose MongoDB's default port
+    volumes:
+      - mongo_data:/data/db  # Persist data between container restarts
+    networks:
+      - app_network
+
+networks:
+  app_network:
+    driver: bridge  # Network for inter-service communication
+
+volumes:
+  mongo_data:  # Volume for MongoDB data persistence
